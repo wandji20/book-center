@@ -29,6 +29,7 @@ gem 'tailwindcss-rails'
 gem 'faker'
 # ENV variables
 gem 'dotenv'
+gem 'chartkick'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
