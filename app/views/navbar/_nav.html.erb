@@ -7,7 +7,7 @@
         </div>
         <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
           <%= link_to t(".books"), root_path, class: "nav-link #{ "active" if action_name == "books"}" %>
-          <%= link_to t(".analytics"), root_path, class: "nav-link #{ "active" if action_name == "analytics"}" %>
+          <%= link_to t(".analytics"), analytics_path, class: "nav-link #{ "active" if action_name == "analytics"}" %>
         </div>
       </div>
 
@@ -25,7 +25,7 @@
 
           <div class="dropdown-menu hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <%= link_to t(".books"), root_path, class: "dropdown-menu-item #{ "active" if action_name == "books"}", tabindex: -1 %>
-            <%= link_to t(".analytics"), root_path, class: "dropdown-menu-item #{ "active" if action_name == "analytics"}", tabindex: -1 %>
+            <%= link_to t(".analytics"), analytics_path, class: "dropdown-menu-item #{ "active" if action_name == "analytics"}", tabindex: -1 %>
           </div>
         </div>
       

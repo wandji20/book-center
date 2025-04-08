@@ -1,7 +1,7 @@
 class ManageSearchQueryJob < ApplicationJob
   queue_as :default
 
-  def perform(ip_address, query)
+  def perform(ip_address, last_query, query)
     user = User.find_or_create_by(ip_address: ip_address)
 
     last_search = user.searches.last
@@ -12,7 +12,9 @@ class ManageSearchQueryJob < ApplicationJob
     end
 
     case true
-    when query.starts_with?(last_search.query)
+    when last_query.empty? # if search query was cleared
+      user.searches.create(query: query)
+    when query.starts_with?(last_search.query) # if last search query is included in query
       last_search.update(query: query)
     else
       user.searches.create(query: query)
