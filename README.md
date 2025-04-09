@@ -19,26 +19,20 @@ redis 7.x (redis-server)
 node 14.x.x (node -v)
 ```
 
-## Live Demo (TBD)
+## Live Demo
 
 [Live Demo Link](https://book-center-s5fb.onrender.com/)
 
 ## Getting Started
 
-### Prerequisites
-- ruby 3.1.3
-- rails 6
-- postgreql
-- redis
-
 ### Setup
 To get a local copy up and running follow these simple example steps.
 
-**Clone Repository**
-**run  `bundle`**
-**run  `yarn install`**
-**run `rails db:setup`**
-**start server with `bin/dev`**
+- **Clone Repository**
+- **run  `bundle`**
+- **run  `yarn install`**
+- **run `rails db:setup`**
+- **start server with `bin/dev`**
 
 ### Usage
 **start local server on localhost:3000**

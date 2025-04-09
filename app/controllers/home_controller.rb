@@ -19,8 +19,13 @@ class HomeController < ApplicationController
   def analytics
     user = User.find_or_create_by(ip_address: @fake_ip)
 
-    @trending_data= Search.trending.map{ |s| [ s.query, s.search_count ] }
-    @searches_data= user.searches.group(:query).order('count_all DESC').count
+    @trending_data = Rails.cache.fetch("trending_searches/data}", expires_in: 1.minutes) do
+      Search.trending.map{ |s| [ s.query, s.search_count ] }
+    end
+
+    @searches_data = Rails.cache.fetch("user_searches/data}", expires_in: 1.minutes) do
+      user.searches.group(:query).order('count_all DESC').count
+    end
   end
 
   private
