@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def analytics
-    user = User.find_or_create_by(ip_address: request.remote_ip)
+    user = User.find_or_create_by(ip_address: request.ip)
 
     @trending_data= Search.trending.map{ |s| [ s.query, s.search_count ] }
     @searches_data= user.searches.group(:query).count
@@ -30,6 +30,6 @@ class HomeController < ApplicationController
     return unless query.present?
     return if last_query == query
 
-    ManageSearchQueryJob.perform_later(request.remote_ip, last_query, query.downcase)
+    ManageSearchQueryJob.perform_later(request.ip, last_query, query.downcase)
   end
 end
