@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :set_user_ip
+
   def books
     query = params[:query]&.strip
 
@@ -15,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def analytics
-    user = User.find_or_create_by(ip_address: request.ip)
+    user = User.find_or_create_by(ip_address: @fake_ip)
 
     @trending_data= Search.trending.map{ |s| [ s.query, s.search_count ] }
     @searches_data= user.searches.group(:query).count
@@ -30,6 +32,12 @@ class HomeController < ApplicationController
     return unless query.present?
     return if last_query == query
 
-    ManageSearchQueryJob.perform_later(request.ip, last_query, query.downcase)
+    ManageSearchQueryJob.perform_later(@fake_ip, last_query, query.downcase)
+  end
+
+  def set_user_ip
+    # Use this hack due to issue with multiple ips in production.
+    @fake_ip = session[:ip] || Digest::SHA256.hexdigest("#{Time.current.to_f * 1000}-#{request.user_agent}-#{request.remote_ip}")
+    session[:ip] = @fake_ip
   end
 end
