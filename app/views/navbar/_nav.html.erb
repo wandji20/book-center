@@ -1,0 +1,38 @@
+<nav class="border-b border-gray-200 bg-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 justify-between">
+      <div class="flex">
+        <div class="flex shrink-0 items-center">
+          <%= link_to root_path, class: "" do %>
+            <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+          <% end %>
+          
+        </div>
+        <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+          <%= link_to t(".books"), root_path, class: "nav-link #{ "active" if action_name == "books"}" %>
+          <%= link_to t(".analytics"), analytics_path, class: "nav-link #{ "active" if action_name == "analytics"}" %>
+        </div>
+      </div>
+
+      <div class=" ml-auto flex items-center text-gray-400" id="mobile-menu">
+        <div class="dropdown sm:hidden" data-controller="dropdown" data-dropdown-target="dropdown">
+          <div>
+            <button type="button" class="relative flex max-w-xs items-center rounded-full bg-white text-sm" id="user-menu-button" aria-expanded="false" aria-haspopup="true" data-action="dropdown#toggle">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open links dropdown</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 rounded-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="dropdown-menu hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <%= link_to t(".books"), root_path, class: "dropdown-menu-item #{ "active" if action_name == "books"}", tabindex: -1 %>
+            <%= link_to t(".analytics"), analytics_path, class: "dropdown-menu-item #{ "active" if action_name == "analytics"}", tabindex: -1 %>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</nav>

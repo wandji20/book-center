@@ -30,4 +30,16 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  navbar:
+    nav:
+      books: "Books"
+      analytics: "Analytics"
+  home:
+    books:
+      title: "Books"
+      no_books_found: "No books found!"
+      search_books: "Search books"
+  books:
+    book:
+      title: "Title:"
+      author: "Author:"
