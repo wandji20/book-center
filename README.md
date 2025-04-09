@@ -43,7 +43,7 @@ To get a local copy up and running follow these simple example steps.
 ### Usage
 **start local server on localhost:3000**
 ### Run tests
-**run `rpsec spec/`**
+**run `bundle exec rpsec spec/`**
 ### Deployment
 
 ## Author

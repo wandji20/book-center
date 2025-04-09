@@ -29,7 +29,10 @@ gem 'tailwindcss-rails'
 gem 'faker'
 # ENV variables
 gem 'dotenv'
+# charts
 gem 'chartkick'
+# Request rate limits
+gem 'rack-attack'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
