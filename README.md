@@ -6,7 +6,14 @@
 > The dashboard displays per-user (IP-based) search trends without authentication.
 
 
-## Prerequisites
+## Live Demo
+
+[Live Demo Link](https://book-center-s5fb.onrender.com/)
+
+## Getting Started
+
+
+### Prerequisites
 
 ```
 ruby 3.1.3 (ruby -v)
@@ -18,12 +25,6 @@ yarn 1.22+ (yarn -v)
 redis 7.x (redis-server)
 node 14.x.x (node -v)
 ```
-
-## Live Demo
-
-[Live Demo Link](https://book-center-s5fb.onrender.com/)
-
-## Getting Started
 
 ### Setup
 To get a local copy up and running follow these simple example steps.
