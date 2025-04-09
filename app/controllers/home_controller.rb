@@ -20,7 +20,7 @@ class HomeController < ApplicationController
     user = User.find_or_create_by(ip_address: @fake_ip)
 
     @trending_data= Search.trending.map{ |s| [ s.query, s.search_count ] }
-    @searches_data= user.searches.group(:query).count
+    @searches_data= user.searches.group(:query).order('count_all DESC').count
   end
 
   private

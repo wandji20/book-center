@@ -3,7 +3,10 @@
     <div class="flex h-16 justify-between">
       <div class="flex">
         <div class="flex shrink-0 items-center">
-          <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+          <%= link_to root_path, class: "" do %>
+            <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+          <% end %>
+          
         </div>
         <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
           <%= link_to t(".books"), root_path, class: "nav-link #{ "active" if action_name == "books"}" %>
